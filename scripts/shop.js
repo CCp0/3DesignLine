@@ -44,7 +44,7 @@ productsList[2] = new Product(
     "Darth Vaders silhouette is holding up a book with the power of the force, or so it appears. The mechanics are simple, using a slanted rectangular side placed inside the pages of the book, this keeps the book aloft. It provides a great stand to place your favorite read.",
     "€5.00",
      4.6,
-    "images/Ice Scrapers/scraperNB.jpg");
+    "images/Darth Vader Bookstand/darthVaderNB.jpg");
 productsList[3] = new Product(
     "Voltron Medallion",
     "A voltron medallion/keyring designed for 3D printing and easily painted with contrasting layer heights. Textures applied from solidworks.",
@@ -61,24 +61,16 @@ productsList[3] = new Product(
     DisplayProducts();
     function DisplayProducts()
     {
-        let counter = 0;
-    let rownum = Math.round(productsList.length / 5);
+    let counter = 0;
     //Displaying the objects
     let container = document.createElement('div');
-    container.setAttribute('class', 'container');
+    container.setAttribute('class', 'container text-center');
     document.body.appendChild(container);
-    for(let rows = 0; rows < rownum; rows++)
-    {
-        const row = document.createElement('div');
-        row.setAttribute('class', 'row');
-        container.appendChild(row);
         do
         {
-        const column = document.createElement('div');
-        column.setAttribute('class', 'col-sm-2 mb-1');
             //Card
         const card = document.createElement('div');
-        card.setAttribute('class', 'card');
+        card.setAttribute('class', 'card d-inline-block');
         card.style.minWidth = '150px';
         card.style.height = '100px';
             //Card Title
@@ -98,11 +90,10 @@ productsList[3] = new Product(
             starIcon[i].setAttribute('class', 'bi bi-star');
             rating.appendChild(starIcon[i]);
         }
-        /*for(let i = 0; i < Math.round(productsList[counter].rating); i++)
+        for(let i = 0; i < Math.round(productsList[counter].rating); i++)
         {
-            starIcon[i].classList.remove("bi bi-star");
             starIcon[i].setAttribute('class', 'bi bi-star-fill');
-        }*/
+        }
             //Card Image
         const icon = document.createElement('img');
         icon.setAttribute('src', productsList[counter].image);
@@ -111,12 +102,10 @@ productsList[3] = new Product(
         card.appendChild(cardTitle);
         card.appendChild(cardDescription);
         card.appendChild(rating);
-        column.appendChild(card);
-        row.appendChild(column);
+        container.appendChild(card);
         counter++;
         }
         while(counter % 5 != 0 && productsList[counter] != null)
-    }
     }
 
 var additem = document.getElementsByClassName('addtocart');
