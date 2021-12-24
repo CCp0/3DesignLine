@@ -1,17 +1,5 @@
 let checkout = document.getElementById('checkout');
-checkout.addEventListener("click", LoginPriority);
 var total=localStorage.getItem('checkout');
-function LoginPriority()
-{
-    if(localStorage == "loggedin")
-    {
-        window.location.href = "checkout.html";
-    }
-    else
-    {
-        window.location.href = "login.html";
-    }
-}
 //Product class declaration
 class Product {
     constructor(name, description, price, rating, reviewNum, iconImage, imageFolder) {
@@ -61,10 +49,10 @@ productsList[3] = new Product(
 productsList[4] = new Product(
     "Samsung S20 FE Phone Case",
     "3D printed phone case for the Samsung Galaxy S20 Fan Edition. A sturdy case made from ABS plastic.",
-    "€5.00",
+    "€8.00",
      4.1,
      16,
-    "");
+    "images/S20 FE Phone Case/20211222_181348.jpg");
 productsList[5] = new Product(
     "3D Printed Skull",
     "Keyword in the title is '3D Printed', rather avoid that particular lawsuit thank you very much. It's very well detailed, great for your science lab, halloween costume or Shakspeare play",
@@ -169,9 +157,8 @@ var additem = document.getElementsByClassName('addtocart');
 // add a listener for add to cart if such a button id is pressed
 for(let i = 0; i < additem.length; i++)
 {
-additem[i].addEventListener("click", addToCart(`${additem[i].id}`));
-
-} 
+additem[i].setAttribute("onclick", `addToCart('${additem[i].id}')`);
+}
 function addToCart(index) {
     total=localStorage.getItem('checkout');
     total++;

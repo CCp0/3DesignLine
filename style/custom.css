@@ -49,3 +49,11 @@ a:hover{
         width: 7em;
     }
 }
+@media only screen and (max-width: 576px)
+{
+    .navbar{
+        float: left;
+        color: chocolate;
+        background-color: chocolate;
+    }
+}
