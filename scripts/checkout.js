@@ -1,5 +1,6 @@
 document.getElementById('buy-button').addEventListener('click', buyNow);
-
+var totalCost = 0;
+//Cart items display
 function boughtProductsDisplay()
 {
 let cartDisplay = document.getElementById('root');
@@ -11,7 +12,6 @@ let productTitle = [];
 let productImg = [];
 let productPrice = [];
 let totalProductPrice = [];
-let totalCost = 0;
 let index = 0;
 let counter = 0;
 for(let i = 1; i < localStorage.getItem('checkout')+1; i++)
@@ -74,16 +74,38 @@ totalCostDisplay = document.createElement('h3');
 totalCostDisplay.innerHTML = ("Total €" + totalCost.toFixed(2));
 cartDisplay.appendChild(totalCostDisplay);
 }
+//Autofill details
+function autofillDetails()
+{
+    let userDetails = JSON.parse(window.localStorage.getItem("userdetails"));
+    document.getElementById('getFirstName').value = userDetails.firstName;
+    document.getElementById('getLastName').value = userDetails.lastName;
+    document.getElementById('getAddress1').value = userDetails.address3;
+    document.getElementById('getAddress2').value = userDetails.address2;
+    document.getElementById('getAddress3').value = userDetails.address1;
+    document.getElementById('getCardName').value = userDetails.cardName;
+    document.getElementById('getCardNumber').value = userDetails.cardNumber;
+    //The card cvc isn't usually autofilled on most sites so I decided to not do that, the code is here though just for demonstration
+    //document.getElementById('getCardCVC').value = userDetails.cvc;
+}
+
+//Buy button logic
 function buyNow()
 {
-    console.log(totalCost);
+    //console.log(totalCost);
     if(totalCost != 0)
     {
-    localStorage.removeItem();
+        for(let i = 1; i < localStorage.getItem("checkout")+1; i++)
+        {
+    localStorage.removeItem("productsList" + i);
+        }
+    localStorage.removeItem('checkout');
+    localStorage.setItem('checkout', 0);
     alert("Thank you for your order");
     }
     else{
         alert("No items in cart, sale void");
     }
 }
+autofillDetails();
 boughtProductsDisplay();

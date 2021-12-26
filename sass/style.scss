@@ -1,0 +1,15 @@
+$primary-background-color: #2E75B6;
+$secondary-background-color: #FFC000;
+$black: #000000;
+.bg-softblue{
+    background-color: $primary-background-color;
+}
+.bg-mustard{
+    background-color: $secondary-background-color;
+}
+.bg-black{
+    background-color: $black;
+}
+.border-black{
+    border-color: $black !important;
+}

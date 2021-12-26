@@ -3,6 +3,9 @@ html{
     font-family: Garamond;
     min-width: 220px;
 }
+header{
+justify-content: center;
+}
 mark{
     color: white;
     text-decoration: underline;
@@ -11,7 +14,9 @@ a:hover{
     cursor: pointer;
 }
 #logo{
-    width: 10em;
+    width: 12em;
+    left: 1em;
+    top: 1em;
 }
 .carousel-item img{
     width: 100%;
@@ -39,20 +44,38 @@ a:hover{
 {
     opacity: 0.15;
 }
+/*Account Login And cart Positioning*/
+#sideNav{
+    right: 7%;
+    top: 0;
+}
+#cartRight{
+    left: 6em;
+    top: 1em;
+}
+#checkout{
+    bottom: 2.3em;
+    left: 1.5em;
+}
 @media only screen and (max-width: 768px)
 {
     html{
-        font-size: 90%;
+        font-size: 80%;
     }
     #logo{
         width: 7em;
     }
+
 }
 @media only screen and (max-width: 576px)
 {
-    .navbar{
-        float: left;
-        color: chocolate;
-        background-color: chocolate;
+    header{
+        justify-content: left;
+    }
+    #logo{
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: 5% auto;
     }
 }

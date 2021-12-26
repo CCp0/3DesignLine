@@ -55,18 +55,18 @@ productsList[4] = new Product(
     "images/S20 FE Phone Case/20211222_181348.jpg");
 productsList[5] = new Product(
     "3D Printed Skull",
-    "Keyword in the title is '3D Printed', rather avoid that particular lawsuit thank you very much. It's very well detailed, great for your science lab, halloween costume or Shakspeare play",
+    "Keyword is '3D Printed', rather avoid that particular lawsuit thank you very much. It's very well detailed, great for your science lab, halloween costume or Shakspeare play",
      10.00,
      4.5,
      23,
     "images/3D Skull/20211219_144146.jpg");
 productsList[6] = new Product(
-    "Samsung S20 FE Phone Case",
-    "3D printed phone case for the Samsung Galaxy S20 Fan Edition. A sturdy case made from ABS plastic.",
+    "Covid-19 Model",
+    "To clarify this is NOT actual Covid-19 virus, really gotta avoid these lawsuits folks. This is a model of a single covid protein cell which is great for the sceince lab or ticking off your isolating peers",
      4.00,
-     4.1,
-     16,
-    "https://img2.cgtrader.com/items/1957307/81acecd766/large/samsung-galaxy-s20-fe-phone-case-3d-model-stl-dwg-sldprt-amf.jpg");
+     4.2,
+     8,
+    "images/Covid19/Covid19 Model.jpg");
        
     DisplayProducts();
     function DisplayProducts()
