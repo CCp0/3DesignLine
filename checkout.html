@@ -43,7 +43,8 @@
   </div>
   </nav>
         <ul class="nav navbar-nav navbar-right position-absolute top-0 end-0">
-          <li><a href="login.html"><button class="bg-secondary text-white border border-3 border-dark">Account</button></li>
+          <li><a class="nav-link bg-secondary text-white border border-3 border-dark p-1 m-1" id="userdetails" href="accountDetails.html"><mark class="bg-secondary text-white">Account</mark></a></li>
+          <li><a href="login.html" class="nav-link bg-secondary text-white border border-3 border-dark p-1 m-1 text-center" id="loginlogout">Login</a></li>
           <li><a href="checkout.html"><i class="bi bi-cart3" style="font-size: 2rem; color: black;"></i></a></li>
           <span id="checkout" class="badge badge-pill bg-danger"></span>
         </ul>
@@ -52,7 +53,7 @@
 <main class="container">       
     <h1>Checkout</h1>
     <div class="row">    
-        <div class="col-sm col-md-4"> 
+        <div class="col-sm col-md-8"> 
           <form name="paymentdetails" id="pdetails" action="" method="get">
                 <fieldset>
                     <legend>Delivery Details</legend>
@@ -104,8 +105,9 @@
             </form>
         </div> 
         <div class="col-sm col-md-4"> 
-          <div id="root">
-
+          <div id="root" class="container">
+            <h1>Shopping Cart</h1>
+            <p>---------------------------------</p>
           </div>
         </div>
     </div>     

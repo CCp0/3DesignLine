@@ -2,7 +2,7 @@
 if (localStorage.getItem('checkout') == null) {  
     localStorage.setItem('checkout',0);
 }
-var checkout=localStorage.getItem('checkout');
+checkout=localStorage.getItem('checkout');
 document.querySelector('#checkout').innerHTML=checkout;
 
 // run to update login/
@@ -11,7 +11,7 @@ var logout = document.getElementById('loginlogout');
 logout.addEventListener("click", Logout);
 
 function Logout() {
-    // if user is logged in them log them out and redirect to home page
+    // if user is logged in then log them out and redirect to home page
     var loggedin=localStorage.getItem('loggedIn'); 
     if (loggedin==1) {
         localStorage.setItem('loggedIn',0);
@@ -33,7 +33,8 @@ function checkLoginStatus() {
         // change the text from Login to Logout
         document.querySelector('#loginlogout').innerHTML="Logout";
         element.classList.remove("d-none");        
-        element.classList.add("d-show");      
+        element.classList.add("d-show");
+        document.getElementById('cart').setAttribute('href', 'checkout.html');
     } else{
         // use add to hide the display of User Details
         element.classList.add("d-none");        
@@ -41,7 +42,7 @@ function checkLoginStatus() {
         document.querySelector('#loginlogout').innerHTML="Login"; 
         element = document.getElementById("loginlogout");
         element.setAttribute("href", "login.html");
-        window.location.href = "login.html";
+        document.getElementById('cart').setAttribute('href', 'login.html');
     } 
 
 }

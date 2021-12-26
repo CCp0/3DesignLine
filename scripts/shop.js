@@ -17,7 +17,7 @@ const productsList = [];//The list index serves as the product ID
 productsList[0] = new Product(
     "Darth Vader Bookstand",
     "Darth Vaders silhouette is holding up a book with the power of the force, or so it appears. The mechanics are simple, using a slanted rectangular side placed inside the pages of the book, this keeps the book aloft. It provides a great stand to place your favorite read.",
-    "€7.00",
+     7.00,
      4.6,
      43,
     "images/Darth Vader Bookstand/20211219_142106.jpg",
@@ -25,7 +25,7 @@ productsList[0] = new Product(
 productsList[1] = new Product(
     "ND - Ice Scraper",
     "The first ever product sold by our initial startup company; New Dimension. This keyring ice scraper has done more for plastic/cooker scraping than ice, so don't let the title limit this products potential!",
-    "€2.50",
+     2.50,
      4.8,
      37,
     "images/Ice Scrapers/20211219_133532.jpg",
@@ -33,7 +33,7 @@ productsList[1] = new Product(
 productsList[2] = new Product(
     "Sturdy Coat Hanger",
     "These coat hangers are nigh indestructible and can take the weight of a free hanging electric guitar (so you know they're quality!). This a product that will get you hooked on 3D printing for its near endless practicality.",
-    "€7.00",
+     8.00,
      3.8,
      28,
     "images/3D Hooks/20211219_143016.jpg",
@@ -41,7 +41,7 @@ productsList[2] = new Product(
 productsList[3] = new Product(
     "Puzzle Cube",
     "A 4 piece puzzle that forms a neat cube, but stays true to the saying, the hardest puzzles are always the ones with the least pieces",
-    "€5.00",
+     5.00,
      5,
      42,
     "images/3D Cube/20211219_143318.jpg",
@@ -49,21 +49,21 @@ productsList[3] = new Product(
 productsList[4] = new Product(
     "Samsung S20 FE Phone Case",
     "3D printed phone case for the Samsung Galaxy S20 Fan Edition. A sturdy case made from ABS plastic.",
-    "€8.00",
+     8.00,
      4.1,
      16,
     "images/S20 FE Phone Case/20211222_181348.jpg");
 productsList[5] = new Product(
     "3D Printed Skull",
     "Keyword in the title is '3D Printed', rather avoid that particular lawsuit thank you very much. It's very well detailed, great for your science lab, halloween costume or Shakspeare play",
-    "€10.00",
+     10.00,
      4.5,
      23,
     "images/3D Skull/20211219_144146.jpg");
 productsList[6] = new Product(
     "Samsung S20 FE Phone Case",
     "3D printed phone case for the Samsung Galaxy S20 Fan Edition. A sturdy case made from ABS plastic.",
-    "€4.00",
+     4.00,
      4.1,
      16,
     "https://img2.cgtrader.com/items/1957307/81acecd766/large/samsung-galaxy-s20-fe-phone-case-3d-model-stl-dwg-sldprt-amf.jpg");
@@ -134,7 +134,7 @@ productsList[6] = new Product(
         saleContainer.setAttribute('class', 'saleContainer position-relative m-1');
         const cardPrice = document.createElement('h3');
         cardPrice.setAttribute('class', 'cardPrice card-text float-start');
-        cardPrice.textContent = productsList[counter].price;
+        cardPrice.textContent = '€' + productsList[counter].price.toFixed(2);
         saleContainer.appendChild(cardPrice);
             //Card add to cart
         let addToCartBtn = document.createElement('button');
@@ -166,5 +166,6 @@ function addToCart(index) {
     document.querySelector('#checkout').innerHTML=total;
     //console.log('Checkout');
     console.log(productsList[index].name);
-    localStorage.setItem("cart", productsList[index]);
+    localStorage.setItem("productsList"+`${total}`, JSON.stringify(productsList[index]));
+
 }
