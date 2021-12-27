@@ -44,13 +44,16 @@ a:hover{
 {
     opacity: 0.15;
 }
+#loginForm{
+    width: 35em;
+}
 /*Account Login And cart Positioning*/
 #sideNav{
-    right: 7%;
+    right: 3em;
     top: 0;
 }
 #cartRight{
-    left: 6em;
+    left: 5em;
     top: 1em;
 }
 #checkout{
@@ -77,5 +80,9 @@ a:hover{
         right: 0;
         top: 0;
         margin: 5% auto;
+    }
+    #loginForm{
+       text-align: center;
+       width: 20em;
     }
 }

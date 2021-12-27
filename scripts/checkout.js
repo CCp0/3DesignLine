@@ -1,5 +1,6 @@
 document.getElementById('buy-button').addEventListener('click', buyNow);
 var totalCost = 0;
+var userDetails = JSON.parse(window.localStorage.getItem("userdetails"));
 //Cart items display
 function boughtProductsDisplay()
 {
@@ -42,7 +43,7 @@ productSpacer.textContent = '---------------------------------';
     productTitle[i].textContent = product[i].name;
     productImg[i].setAttribute('src', product[i].image);
     productPrice[i] = document.createElement('p');
-    productPrice[i].innerHTML = product[i].price.toFixed(2);
+    productPrice[i].innerHTML = '€' + product[i].price.toFixed(2);
     console.log(product[i].price);
     //Styling
     productImg[i].setAttribute('class', 'icon float-start');
@@ -77,7 +78,6 @@ cartDisplay.appendChild(totalCostDisplay);
 //Autofill details
 function autofillDetails()
 {
-    let userDetails = JSON.parse(window.localStorage.getItem("userdetails"));
     document.getElementById('getFirstName').value = userDetails.firstName;
     document.getElementById('getLastName').value = userDetails.lastName;
     document.getElementById('getAddress1').value = userDetails.address3;
@@ -85,14 +85,19 @@ function autofillDetails()
     document.getElementById('getAddress3').value = userDetails.address1;
     document.getElementById('getCardName').value = userDetails.cardName;
     document.getElementById('getCardNumber').value = userDetails.cardNumber;
-    //The card cvc isn't usually autofilled on most sites so I decided to not do that, the code is here though just for demonstration
-    //document.getElementById('getCardCVC').value = userDetails.cvc;
+    document.getElementById('getCardCVC').value = userDetails.cvc;
 }
 
+autofillDetails();
+boughtProductsDisplay();
 //Buy button logic
 function buyNow()
 {
-    //console.log(totalCost);
+    console.log(userDetails.cardNumber);
+    if(document.getElementById('getCardName').value == userDetails.cardName
+    && document.getElementById('getCardNumber').value == userDetails.cardNumber
+    && document.getElementById('getCardCVC').value == userDetails.cvc)
+    {
     if(totalCost != 0)
     {
         for(let i = 1; i < localStorage.getItem("checkout")+1; i++)
@@ -104,8 +109,10 @@ function buyNow()
     alert("Thank you for your order");
     }
     else{
-        alert("No items in cart, sale void");
+        alert("No items in cart; sale void");
+    }
+    }
+    else{
+        alert("Invalid Credit Card Details");
     }
 }
-autofillDetails();
-boughtProductsDisplay();
