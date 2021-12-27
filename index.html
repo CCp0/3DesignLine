@@ -19,7 +19,7 @@
     <header class="d-flex py-3 sticky-top">
       <div><img src="images/logo.png" id="logo" class="position-absolute" alt="logo"></div>
          <!-- Navigation -->
-          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+          <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Main Site Navigation">
               <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                   <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
               </div>
             </nav>
           </div>
-                  <ul class="nav navbar-nav navbar-right position-absolute" id="sideNav">
+                  <ul class="nav navbar-nav navbar-right position-absolute" id="sideNav" aria-label="Account and Checkout Navigation">
                     <li><a class="nav-link bg-dark text-white border border-3 border-black p-1 m-1" id="userdetails" href="accountDetails.html">Account</a></li>
                     <li><a href="login.html" class="nav-link bg-dark text-white border border-3 border-black p-1 m-1 text-center" id="loginlogout">Login</a></li>
                     <li class="position-absolute" id="cartRight"><a href="checkout.html" id="cart"><i class="bi bi-cart3" style="font-size: 2rem; color: black;"></i></a>
@@ -93,12 +93,13 @@
         </button>
       </div>
       <div id="promotion">
-        <video class="w-100 m-2" height="300em" controls>
+        <video class="w-100 m-2" height="300em" aria-label="Double Decker Harmonica Demonstration" controls>
           <source src="videos/harmonicaavi.avi" type="video/avi">
           <source src="videos/harmonicamov.mov" type="video/mov">
           <source src="videos/harmonicamp4.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
+        
       </div>
       </div>
       <div class="col-sm-5">
