@@ -81,6 +81,7 @@ productsList[6] = new Product(
             //Card
         const card = document.createElement('div');
         card.setAttribute('class', 'card d-inline-block m-2');
+        card.setAttribute('id', productsList[counter].name);
             //Card Title
         const cardTitle = document.createElement('h5');
         cardTitle.setAttribute('class', 'card-title');
@@ -125,10 +126,13 @@ productsList[6] = new Product(
         cardDescription.setAttribute('class', 'description card-text position-absolute top-50 start-50 translate-middle');
         cardDescription.textContent = productsList[counter].description.substring(0,80) + '...';
             //Image container / Card Description Display
+        const productPage = document.createElement('a');
+        productPage.setAttribute('href', 'productPage.html');
         const imgContainer = document.createElement('div');
         imgContainer.setAttribute('class', 'imgContainer position-relative');
         imgContainer.appendChild(cardDescription);
         imgContainer.appendChild(icon);
+        productPage.appendChild(imgContainer);
             //Pricing
         const saleContainer = document.createElement('div');
         saleContainer.setAttribute('class', 'saleContainer position-relative m-1');
@@ -143,7 +147,7 @@ productsList[6] = new Product(
         addToCartBtn.setAttribute('id', `${counter}`)
         saleContainer.appendChild(addToCartBtn);
             //Card content appending
-        card.appendChild(imgContainer);
+        card.appendChild(productPage);
         card.appendChild(cardTitle);
         card.appendChild(ratingContainer);
         card.appendChild(saleContainer);
@@ -169,3 +173,14 @@ function addToCart(index) {
     localStorage.setItem("productsList"+`${total}`, JSON.stringify(productsList[index]));
 
 }
+//Searchbar Javascript
+const searchInput = document.querySelector("[data-search]");
+searchInput.addEventListener("input", i => {
+    const value = i.target.value.toLowerCase();
+    productsList.forEach(product => {
+        const filter = product.name.toLowerCase().includes(value);
+        console.log(product.name, filter);
+        let productCard = document.getElementById(product.name);
+        productCard.classList.toggle("d-none", !filter);
+    })
+})
