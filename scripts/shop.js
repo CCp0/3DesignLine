@@ -174,7 +174,7 @@ function addToCart(index) {
 
 }
 //Searchbar Javascript
-const searchInput = document.querySelector("[data-search]");
+const searchInput = document.getElementById('search-input');
 searchInput.addEventListener("input", i => {
     const value = i.target.value.toLowerCase();
     productsList.forEach(product => {
